@@ -278,6 +278,7 @@ public class GenericObjectPool<T, E extends Exception> extends BaseGenericObject
      * @throws NoSuchElementException if an instance cannot be returned
      * @throws E if an object instance cannot be returned due to an error
      * @since 2.10.0
+     * 在获取对象池中的对象的时候 才用阻塞的方式来获取，所有获取对象的线程是一把锁 并发度很低
      */
     public T borrowObject(final Duration maxWaitDuration) throws E {
         assertOpen();
